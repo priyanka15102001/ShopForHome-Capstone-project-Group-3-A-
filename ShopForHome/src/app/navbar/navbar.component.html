@@ -1,0 +1,89 @@
+<!-- Nav Bar Start -->
+<div class="nav" >
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <a href="#" class="navbar-brand">MENU</a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-between"
+        id="navbarCollapse"
+      >
+        <div class="navbar-nav mr-auto">
+          <a routerLink="" class="nav-item nav-link active"><b>Home</b></a>
+          <a routerLink="products" class="nav-item nav-link"><b>Products</b></a>
+
+          <a routerLink="/admin" class="nav-item nav-link" *ngIf="admin"><b>Admin Controls</b></a>
+        </div>
+        <div class="navbar-nav ml-auto">
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle nav-link"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <b>Account</b>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a
+                  *ngIf="!loggedin"ssa
+                  routerLink="login"
+                  class="dropdown-item"
+                  >Log In</a
+                >
+              </li>
+              <li>
+                <a *ngIf="loggedin" (click)="LogOut()" class="dropdown-item"
+                  >Log Out</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- Nav Bar End -->
+
+<!-- Bottom Bar Start -->
+<div class="bottom-bar">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-3">
+        <div class="logo">
+          <a href="index.html">
+            <img src="../../assets/images/store.jpeg" alt="Logo" />
+          </a>
+          <b>ShopForHome</b>
+        </div>
+      </div>
+
+      
+      
+      <div class="col-md-9">
+        <div class="user">
+          <a routerLink="viewwishlist" class="btn wishlist">
+            <i class="fa fa-heart"></i>
+          </a>
+          <a routerLink="viewcart" class="btn cart">
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Bottom Bar End -->
+
+

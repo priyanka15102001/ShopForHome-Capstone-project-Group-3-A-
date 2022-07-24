@@ -1,0 +1,172 @@
+<!-- Alert after product added -->
+<div style="height: 60px" class="my-3" >
+  <div
+    *ngIf="show" class="container alert alert-warning alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>{{message}}</strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>
+
+<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link active"
+      id="home-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#home"
+      type="button"
+      role="tab"
+      aria-controls="home"
+      aria-selected="true"
+    >
+      Users
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      id="profile-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#profile"
+      type="button"
+      role="tab"
+      aria-controls="profile"
+      aria-selected="false"
+    >
+      Products
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      id="contact-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#contact"
+      type="button"
+      role="tab"
+      aria-controls="contact"
+      aria-selected="false"
+    >
+      Sales
+    </button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div
+    class="tab-pane fade show active"
+    id="home"
+    role="tabpanel"
+    aria-labelledby="home-tab"
+  >
+    <table class="container my-3 table table-success">
+      <thead>
+        <tr>
+          <th scope="col">#id</th>
+          <th scope="col">User name</th>
+          <th scope="col">Password</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let u of users">
+        <tr>
+          <th scope="row">{{u.id}}</th>
+          <td>{{u.name}}</td>
+          <td>{{u.password}}</td>
+          <td style="color: red; cursor: pointer" (click)="DeleteUser(u.id)"><strong>X</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    class="tab-pane fade"
+    id="profile"
+    role="tabpanel"
+    aria-labelledby="profile-tab"
+  >
+    <table class="container my-3 table table-success">
+      <thead>
+        <tr>
+         
+          <th scope="col">Product name</th>
+          <th scope="col">Product Image</th>
+          <th scope="col">Product type</th>
+          <th scope="col">Product price</th>
+          <th scope="col">Product description</th>
+          <th scope="col">Stocks</th>
+         
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+       
+          <td><input type="text" id="name" placeholder="product name" /></td>
+          <td><input type="text" id="img_url" placeholder="product image" /></td>
+          <td><input type="text" id="type" placeholder="product type" /></td>
+          <td><input type="text" id="price" placeholder="product price" /></td>
+          <td><input type="text" id="desc" placeholder="product desc" /></td>
+          <td><input type="text" id="stocks" placeholder="product stocks" /></td>
+         
+          <td  ><button class="btn btn-primary" (click)="AddItem()">Add</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="container my-3 table table-success">
+      <thead>
+        <tr>
+          
+          <th scope="col">Product name</th>
+          <th scope="col">Product type</th>
+
+          <th scope="col">Stocks</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let pd of products">
+
+        <tr>
+          
+          <td>{{pd.product_name}}</td>
+          <td>{{pd.product_type}}</td>
+          <td>{{pd.stocks}}</td>
+          <td style="color: red; cursor: pointer" (click)="DeleteItem(pd.id)"><strong>X</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    class="tab-pane fade"
+    id="contact"
+    role="tabpanel"
+    aria-labelledby="contact-tab"
+  >
+  <table class="container my-3 table table-success">
+    <thead>
+      <tr>
+   
+        <th scope="col">Product name</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Product Quantity</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let s of salelog ">
+      <tr>
+       
+        <td>{{s.product_name}}</td>
+        <td>{{s.product_price}}</td>
+        <td>{{s.quantity}}</td>
+        <td>{{s.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

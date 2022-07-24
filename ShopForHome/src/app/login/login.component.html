@@ -1,0 +1,57 @@
+
+
+<body>
+    <div class="wrapper">
+<!-- Aler after product deleted -->
+<div style="height: 60px">
+    <div
+      *ngIf="loggedin"
+      class="p-2 container alert alert-warning alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>{{message}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    <!-- <div
+      *ngIf="!loggedin"
+      class="container alert alert-warning alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Error!</strong> Kon hai be.
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div> -->
+  </div>
+
+        <div class="logo">
+            <img src="../../assets/images/icons8-circled-user-male-skin-type-7.gif" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+            LogIn
+        </div>
+        <form class="p-3 mt-3">
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text"   name="userName" id="username" placeholder="Username">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="Password">
+            </div>
+            <button (click)="LogIn()" class="btn mt-3">Login</button>
+        </form>
+        <div class="text-center fs-6">
+            <a href="#">Forget password?</a> or <a routerLink="/register">Register</a>
+        </div>
+    </div>
+    </body>

@@ -1,0 +1,107 @@
+
+<!-- SEARCH BAR -->
+<div class="container">
+  <div class="search d-flex justify-content-center ">
+    <input type="text" id="searchword" placeholder="Search" />
+    <button class="mx-3" (click)="searched()" ><i class="fa fa-search" ></i></button>
+   </div> 
+</div>
+
+
+
+<!-- Filter and sort -->
+<div class="container d-flex justify-content-center align-items-center">
+  <h4>Filter Products:</h4>
+  <menu>
+    <label for="product-type" class="px-2">
+      Product type
+      <select name="product-type" id="product-type" class="filter">
+        <option value="0" selected>All</option>
+        <option *ngFor="let allct of allcat" value="{{ allct }}">
+          {{ allct }}
+        </option>
+      </select>
+    </label>
+    <label for="sort" class="px-2">
+      Sort by
+      <select name="sort" id="sort">
+        <option value="all">Relevant</option>
+        <option value="HL">Price:High to Low</option>
+        <option value="LH">Price:Low to High</option>
+      </select>
+    </label>
+    <button class="btn btn-secondary" (click)="filterandsort()">Apply</button>
+  </menu>
+</div>
+<hr />
+
+<!-- Aler after product added -->
+<div style="height: 60px">
+  <div
+    *ngIf="added"
+    class="container alert alert-warning alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>Success!</strong> You're Product is added to Cart.
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>
+
+<!-- cards generate -->
+
+<div class="d-flex justify-content-center flex-wrap col">
+  <div *ngFor="let product of products">
+    <div id="{{ product.id }}" onclick="">
+      <div class="product-item py-2 px-1">
+        <div class="product-title">
+          <p class="text-white">{{ product.product_name }}</p>
+          <div class="ratting">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+        </div>
+        <div class="product-image">
+          <a routerLink="/products">
+            <img  src="{{product.img_url}}" alt="Product Image" />
+          </a>
+          <div class="product-action" >
+            <a (click)="
+            AddToCart(product.id,product.product_name, 1, product.product_price, 20, product.img_url)
+          " ><i class="fa fa-cart-plus" ></i></a>
+            <a
+              (click)="
+                AddToWish(
+                product.product_name,
+                  product.product_price,
+                  1,
+                  product.product_price - 20,product.img_url
+                )
+              "
+              ><i class="fa fa-heart"></i
+            ></a>
+            <a href="#"><i class="fa fa-search"></i></a>
+          </div>
+        </div>
+        <div class="product-price">
+          <h3><span>$</span>{{ product.product_price }}</h3>
+          <a
+            class="btn"
+            routerLink="/products"
+            (click)="
+              AddToCart(product.id,product.product_name, 1, product.product_price, 20, product.img_url)
+            "
+            ><i class="fa fa-shopping-cart"></i>Add To Cart</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

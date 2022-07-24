@@ -1,0 +1,65 @@
+
+
+
+<body>
+  
+  <div class="wrapper">
+    <div style="height: 60px">
+      <div
+        *ngIf="alert_reg"
+        class="container alert alert-success alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>{{message}}</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+  
+      </div>
+    </div>
+    <div class="logo">
+      <img
+        src="../../assets/images/icons8-circled-user-male-skin-type-7.gif"
+        alt=""
+      />
+    </div>
+    <div class="text-center mt-4 name">Register</div>
+    <form class="p-3 mt-3">
+      <div class="form-field d-flex align-items-center">
+        <span class="far fa-user"></span>
+        <input
+          type="text"
+          name="userName"
+          id="username"
+          placeholder="Username"
+        />
+      </div>
+
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        <input
+          type="password"
+          name="password"
+          id="pwd"
+          placeholder="Password"
+        />
+      </div>
+      <!-- to register as admin  -->
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="usertype">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Register As Admin</label>
+        </div>
+
+      </div>
+      <button (click)="Register()" class="btn mt-3">Register</button>
+    </form>
+
+    <div class="text-center fs-6">
+      <a routerLink="/login">LogIn</a>
+    </div>
+  </div>
+</body>
